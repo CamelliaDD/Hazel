@@ -1,0 +1,8 @@
+#pragma once
+
+//仅供客户端应用程序包含的头文件
+#include "Hazel/Application.h"
+
+//-----Entry Point---------------
+#include "Hazel/EntryPoint.h"
+//-------------------------------
