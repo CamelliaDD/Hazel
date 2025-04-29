@@ -10,6 +10,10 @@ extern Hazel::Application* Hazel::CreateApplication();
 
 int main()
 {
+	Hazel::Log::Init();
+	HZ_CORE_WARN("Initialized Log!");
+	int a = 5;
+	HZ_INFO("Hello! Var={0}", a);
 	//这一部分处理应该由引擎处理而不是应用程序
 	//我们使用堆分配，因为Sandbox可能会非常大，我们需要控制其生命周期，这实际上是我们整个应用程序的核心
 	auto app = Hazel::CreateApplication();  //return new Sandbox();
