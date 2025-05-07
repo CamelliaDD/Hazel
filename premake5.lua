@@ -85,7 +85,7 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.26100.0"
+		systemversion "latest"
 		buildoptions { "/utf-8" } 
 		characterset "Unicode"
 
