@@ -1,4 +1,4 @@
-#include "Log.h"
+ï»¿#include "Log.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 namespace Hazel {
@@ -7,7 +7,7 @@ namespace Hazel {
 
 	void Log::Init()
 	{
-		//ÉèÖÃÄ£Ê½
+		//è®¾ç½®æ¨¡å¼
 		spdlog::set_pattern("%^[%T] %n: %v%$");
 
 		s_CoreLogger = spdlog::stdout_color_mt("HAZEL");

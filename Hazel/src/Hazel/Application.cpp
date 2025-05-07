@@ -1,4 +1,4 @@
-#include "Application.h"
+ï»¿#include "Application.h"
 
 namespace Hazel
 {
@@ -10,7 +10,7 @@ namespace Hazel
 	}
 	void Application::Run()
 	{
-		//ÈÃÎÒÃÇÓĞÒ»¸öÎŞÏŞÔËĞĞµÄ³ÌĞò
+		//è®©æˆ‘ä»¬æœ‰ä¸€ä¸ªæ— é™è¿è¡Œçš„ç¨‹åº
 		while (true);
 	}
 }

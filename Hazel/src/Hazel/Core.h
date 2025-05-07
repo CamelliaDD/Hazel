@@ -1,15 +1,15 @@
-#pragma once
+ï»¿#pragma once
 
-//_declspec(dllexport)/_declspec(dllimport)½öÊÊÓÃÓÚWindowsÏµÍ³
+//_declspec(dllexport)/_declspec(dllimport)ä»…é€‚ç”¨äºWindowsç³»ç»Ÿ
 #ifdef HZ_PLATFORM_WINDOWS
-	//Èç¹û¶¨ÒåÁËHZ¹¹½¨dllºê£¬ÒâÎ¶×ÅÎÒÃÇÕıÔÚ³¢ÊÔÎªHazelÏîÄ¿¹¹½¨Õâ¸ödll£¬¶ø²»ÊÇSandbox
+	//å¦‚æœå®šä¹‰äº†HZæ„å»ºdllå®ï¼Œæ„å‘³ç€æˆ‘ä»¬æ­£åœ¨å°è¯•ä¸ºHazelé¡¹ç›®æ„å»ºè¿™ä¸ªdllï¼Œè€Œä¸æ˜¯Sandbox
 	#ifdef HZ_BUILD_DLL
 		#define HAZEL_API __declspec(dllexport)
 	#else
 		#define HAZEL_API __declspec(dllimport)
 	#endif
 #else
-	//ÔÚÃ»ÓĞ¶¨ÒåÆ½Ì¨Ê±´¥·¢´íÎóµ¼ÖÂÎŞ·¨¹¹½¨£¬¶ø½öÖ§³ÖÕâÒ»ÖÖÆ½Ì¨
+	//åœ¨æ²¡æœ‰å®šä¹‰å¹³å°æ—¶è§¦å‘é”™è¯¯å¯¼è‡´æ— æ³•æ„å»ºï¼Œè€Œä»…æ”¯æŒè¿™ä¸€ç§å¹³å°
 	#error Hazel only supports Windows! 
 
 #endif

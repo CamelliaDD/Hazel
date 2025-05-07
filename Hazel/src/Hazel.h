@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-//½ö¹©¿Í»§¶ËÓ¦ÓÃ³ÌĞò°üº¬µÄÍ·ÎÄ¼ş
+//ä»…ä¾›å®¢æˆ·ç«¯åº”ç”¨ç¨‹åºåŒ…å«çš„å¤´æ–‡ä»¶
 #include "Hazel/Application.h"
 #include "Hazel/Log.h"
 //-----Entry Point---------------

@@ -1,21 +1,21 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Core.h"
 
 
 namespace Hazel
 {
-	//class _declspec(dllexport) ApplicationÍ¨¹ıºêÌæ»»ÎªHAZEL_API
+	//class _declspec(dllexport) Applicationé€šè¿‡å®æ›¿æ¢ä¸ºHAZEL_API
 	class HAZEL_API Application
 	{
 	public:
 		Application();
 		virtual ~Application();
-		//ÔËĞĞÓ¦ÓÃ³ÌĞòµÄÔËĞĞº¯Êı
+		//è¿è¡Œåº”ç”¨ç¨‹åºçš„è¿è¡Œå‡½æ•°
 		void Run();
 	};
 
-	//ÔÚ¿Í»§¶ËÖĞ¶¨Òå
+	//åœ¨å®¢æˆ·ç«¯ä¸­å®šä¹‰
 	Application* CreateApplication();
 }
 

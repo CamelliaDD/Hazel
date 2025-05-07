@@ -1,6 +1,6 @@
-#include <Hazel.h>
+ï»¿#include <Hazel.h>
 
-//´´½¨Ò»¸öHazelÓ¦ÓÃ³ÌĞò
+//åˆ›å»ºä¸€ä¸ªHazelåº”ç”¨ç¨‹åº
 class Sandbox : public Hazel::Application
 {
 public:
@@ -15,7 +15,7 @@ public:
 	}
 };
 
-//µ÷ÓÃÕâ¸öº¯Êı¹¹½¨Êµ¼ÊµÄÓ¦ÓÃ³ÌĞò
+//è°ƒç”¨è¿™ä¸ªå‡½æ•°æ„å»ºå®é™…çš„åº”ç”¨ç¨‹åº
 Hazel::Application* Hazel::CreateApplication()
 {
 	return new Sandbox();

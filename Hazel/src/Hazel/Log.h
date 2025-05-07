@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 
-#include <memory> //ÒÔ±ãÊ¹ÓÃ¹²ÏíÖ¸Õë
+#include <memory> //ä»¥ä¾¿ä½¿ç”¨å…±äº«æŒ‡é’ˆ
 #include "Core.h"
 #include "spdlog/spdlog.h"
 
@@ -8,10 +8,10 @@ namespace Hazel {
 	class HAZEL_API Log
 	{
 	public:
-		//´´½¨Ò»¸ö³õÊ¼»¯º¯Êı
+		//åˆ›å»ºä¸€ä¸ªåˆå§‹åŒ–å‡½æ•°
 		static void Init();
-		//´´½¨Ò»¸ö¾²Ì¬ÄÚÁªµÄST¹²ÏíÖ¸Õë£¨inline ststic ST shared pointer£©
-		//ÉèÖÃÁ½ÖÖ£¨ºËĞÄ/¿Í»§¶Ë£©ÈÕÖ¾¼ÇÂ¼Æ÷
+		//åˆ›å»ºä¸€ä¸ªé™æ€å†…è”çš„STå…±äº«æŒ‡é’ˆï¼ˆinline ststic ST shared pointerï¼‰
+		//è®¾ç½®ä¸¤ç§ï¼ˆæ ¸å¿ƒ/å®¢æˆ·ç«¯ï¼‰æ—¥å¿—è®°å½•å™¨
 		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
 		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 
@@ -21,14 +21,14 @@ namespace Hazel {
 	};
 }
 
-//ºËĞÄÈÕÖ¾ºê£¨Core log macros£©
+//æ ¸å¿ƒæ—¥å¿—å®ï¼ˆCore log macrosï¼‰
 #define HZ_CORE_TRACE(...)		::Hazel::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define HZ_CORE_INFO(...)       ::Hazel::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define HZ_CORE_WARN(...)       ::Hazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define HZ_CORE_ERROR(...)      ::Hazel::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define HZ_CORE_FATAL(...)      ::Hazel::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
-//¿Í»§¶ËÈÕÖ¾ºê£¨Client log macros£©
+//å®¢æˆ·ç«¯æ—¥å¿—å®ï¼ˆClient log macrosï¼‰
 #define HZ_TRACE(...)	        ::Hazel::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define HZ_INFO(...)            ::Hazel::Log::GetClientLogger()->info(__VA_ARGS__)
 #define HZ_WARN(...)            ::Hazel::Log::GetClientLogger()->warn(__VA_ARGS__)
