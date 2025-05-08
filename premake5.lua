@@ -7,7 +7,7 @@ workspace "Hazel"
 		"Release",
 		"Dist"
 	}
-	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" 
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" 
 
 project "Hazel"
 	location "Hazel"
@@ -17,6 +17,9 @@ project "Hazel"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "hzpch.h"
+	pchsource "Hazel/src/hzpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -25,7 +28,9 @@ project "Hazel"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/fmt/include"
 	}
 
 	filter "system:windows"
@@ -39,10 +44,12 @@ project "Hazel"
 		{
 			"HZ_PLATFORM_WINDOWS",
 			"HZ_BUILD_DLL",
+			"SPDLOG_FMT_EXTERNAL",
+			"FMT_HEADER_ONLY"
 		}
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
+			("{COPY} \"%{cfg.buildtarget.abspath}\" \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -65,6 +72,7 @@ project "Sandbox"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -74,6 +82,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Hazel/vendor/spdlog/include",
+		"Hazel/vendor/fmt/include",
 		"Hazel/src"
 	}
 

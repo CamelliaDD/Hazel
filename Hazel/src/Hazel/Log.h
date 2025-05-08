@@ -1,8 +1,10 @@
 ﻿#pragma once
 
-#include <memory> //以便使用共享指针
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include <fmt/ostream.h>
+
+
 
 namespace Hazel {
 	class HAZEL_API Log
