@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 
+#include "hzpch.h"
 #include "Hazel/Core.h"
 
 namespace Hazel {
@@ -38,6 +39,7 @@ namespace Hazel {
 	{
 		friend class EventDispatcher;
 	public:
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -80,5 +82,27 @@ namespace Hazel {
 		return os << e.ToString();
 	}
 }
+
+#include <spdlog/fmt/bundled/format.h>
+#include "Event.h"
+
+namespace fmt {
+
+	template<>
+	struct formatter<Hazel::Event> {
+		// No formatting options supported
+		constexpr auto parse(format_parse_context& ctx) const{
+			return ctx.begin();
+		}
+
+		template<typename FormatContext>
+		auto format(const Hazel::Event& e, FormatContext& ctx) const{
+			// Use ToString() for formatting
+			return format_to(ctx.out(), "{}", e.ToString());
+		}
+	};
+
+}
+
 
 

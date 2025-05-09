@@ -9,6 +9,12 @@ workspace "Hazel"
 	}
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" 
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
+
+include "Hazel/vendor/GLFW"
+
 project "Hazel"
 	location "Hazel"
 	kind "SharedLib"
@@ -30,11 +36,17 @@ project "Hazel"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/vendor/fmt/include"
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+		cppdialect "C++20"
 		staticruntime "On"
 		systemversion "latest"
 		buildoptions { "/utf-8" } 
@@ -43,9 +55,7 @@ project "Hazel"
 		defines
 		{
 			"HZ_PLATFORM_WINDOWS",
-			"HZ_BUILD_DLL",
-			"SPDLOG_FMT_EXTERNAL",
-			"FMT_HEADER_ONLY"
+			"HZ_BUILD_DLL"
 		}
 		postbuildcommands
 		{
@@ -82,8 +92,7 @@ project "Sandbox"
 	includedirs
 	{
 		"Hazel/vendor/spdlog/include",
-		"Hazel/vendor/fmt/include",
-		"Hazel/src"
+		"Hazel/src"	
 	}
 
 	links
@@ -92,7 +101,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+		cppdialect "C++20"
 		staticruntime "On"
 		systemversion "latest"
 		buildoptions { "/utf-8" } 

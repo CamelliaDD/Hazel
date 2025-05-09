@@ -64,17 +64,3 @@ namespace Hazel {
 	};
 }
 
-// === 在全局命名空间添加 fmt 格式化器特化 ===
-template <>
-struct fmt::formatter<Hazel::WindowResizeEvent> {
-	// parse 函数无需 const（但某些 fmt 版本要求）
-	constexpr auto parse(format_parse_context& ctx) const {
-		return ctx.begin();
-	}
-
-	// format 必须标记为 const
-	template <typename FormatContext>
-	auto format(const Hazel::WindowResizeEvent& event, FormatContext& ctx) const {
-		return fmt::format_to(ctx.out(), "{}", event.ToString());
-	}
-};
